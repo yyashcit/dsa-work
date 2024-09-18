@@ -2,13 +2,12 @@ package org.dsa.array;
 
 public class FindDuplicateFromArray {
     public static void main(String[] args) {
-        int[] nums= {1,1,2};
-       int ans=  removeDuplicates(nums);
+        int[] nums= {1,2,3,4};
+        int i=30%10;
+       boolean ans=  containsDuplicate(nums);
         System.out.println(ans);
     }
-    public static int removeDuplicates(int[] nums) {
-        int index=0;
-        int length=nums.length;
+    public static boolean containsDuplicate(int[] nums) {
         int totalUnique=0;
         for(int i=0;i<nums.length;i++){
             int duplicateCounter=0;
@@ -21,18 +20,16 @@ public class FindDuplicateFromArray {
                 }
             }
 
-            if(duplicateCounter==0){
-                totalUnique++;
-                nums[index]=nums[i];
-                index++;
-            }
+            if(duplicateCounter>0){
+
+                return true;
+
+            }else {totalUnique++;}
         }
-        for(int i=0;i<nums.length;i++){
-            System.out.print(nums[i]+", ");
-        }
-        System.out.println();
 
 
-        return totalUnique;
+        return totalUnique==nums.length?false:true;
+
+
     }
 }
