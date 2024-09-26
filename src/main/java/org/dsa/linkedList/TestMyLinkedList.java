@@ -6,9 +6,30 @@ public class TestMyLinkedList {
     public static void main(String[] args) {
         TestMyLinkedList testObj = new TestMyLinkedList();
         testObj.insertFirst(1);
-        testObj.insertLast(5);
-        testObj.insertInMiddile(3,4);
+        testObj.insertLast(2);
+        testObj.insertInMiddile(3,1);
         testObj.display();
+        //testObj.isPalindrome()
+    }
+    public boolean isPalindrome(ListNode head) {
+        ListNode temp=head;
+        int sum=0;
+        while(temp!=null)
+        {
+            sum+=temp.next.val*10;
+        }
+        sum=sum/10;
+        int localTemp=sum;
+
+        while(sum>0)
+        {
+            int rem=sum%10;
+            sum=sum/10;
+        }
+        if(localTemp==sum)
+        {
+            return true;
+        }return false;
     }
 
     ListNode insertFirst(int value) {
