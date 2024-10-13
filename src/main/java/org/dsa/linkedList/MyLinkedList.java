@@ -10,4 +10,6 @@ public class MyLinkedList {
     public MyLinkedList() {
         this.size = 0;
     }
+
+
 }
