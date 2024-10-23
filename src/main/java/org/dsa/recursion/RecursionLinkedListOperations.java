@@ -5,6 +5,7 @@ public class RecursionLinkedListOperations {
     public static void main(String[] args) {
         // Create a hard-coded linked list:
         // 1 -> 2 -> 3 -> 4 -> 5
+        RecursionLinkedListOperations obj=new RecursionLinkedListOperations();
         ListNode head1 = new ListNode(1);
         head1.next = new ListNode(2);
         head1.next.next = new ListNode(3);
@@ -14,7 +15,7 @@ public class RecursionLinkedListOperations {
         System.out.print("Given Linked List:");
         printList(head1);
 
-//        head1 = reverseLinkedList(head1);
+        head1 = obj.reverseList(head1);
 
         System.out.print("\nreversed Linked List:");
         printList(head1);
@@ -30,7 +31,21 @@ public class RecursionLinkedListOperations {
         System.out.println();
     }
 
-    static boolean isPalindronByRecursion(ListNode head){
-        return false;
+    public ListNode reverseList(ListNode head) {
+
+        if (head == null || head.next == null) {
+            return head;
+        }
+        // Reverse the rest of the list
+        ListNode revHead = reverseList(head.next);
+        System.out.println(revHead.next.data);
+        // Make the current head the last node
+        head.next.next = head;
+
+        // Update the next of current head to NULL
+        head.next = null;
+
+        // Return the new head of the reversed list
+        return revHead;
     }
 }
