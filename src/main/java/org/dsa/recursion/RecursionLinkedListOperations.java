@@ -38,7 +38,6 @@ public class RecursionLinkedListOperations {
         }
         // Reverse the rest of the list
         ListNode revHead = reverseList(head.next);
-        System.out.println(revHead.next.data);
         // Make the current head the last node
         head.next.next = head;
 
