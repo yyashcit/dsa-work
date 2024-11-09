@@ -6,7 +6,7 @@ public class PrintPermutation {
 
 
     public static void main(String[] args) {
-        String ip = "abc";
+        String ip = "abcd";
         getPermutation(ip, "");
         }
 
