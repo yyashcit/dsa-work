@@ -143,12 +143,9 @@ public class SizeSumMaxHeightOfTree {
         while (q.size() > 0) {
             int count = q.size();
             List<Integer> innerList = new ArrayList<>();
-
             for (int i = 0; i < count; i++) {
-
                 root = q.remove();
                 System.out.print(root.data + " ");
-
                 innerList.add(root.data);
                 if (root.left != null) {
                     q.add(root.left);
