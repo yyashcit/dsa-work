@@ -16,10 +16,10 @@ public class LeetCodeQuestions {
         System.out.println("given LL");
         LeetCodeQuestions llObj = new LeetCodeQuestions();
         llObj.printList(head1);
-        System.out.println("remove 2nd NodeFromEndOfList");
+        //System.out.println("remove 2nd NodeFromEndOfList");
 
 
-        llObj.printList(llObj.removeNthNodeFromEndOfList(head1, 2));
+        //llObj.printList(llObj.removeNthNodeFromEndOfList(head1, 2));
         System.out.println("reverse linkedList");
         llObj.printList(llObj.reverseList(head1));
 
