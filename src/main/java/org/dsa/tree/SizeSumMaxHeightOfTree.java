@@ -37,6 +37,8 @@ public class SizeSumMaxHeightOfTree {
         System.out.println();
         System.out.println("Level Order Traversal");
         obj.levelOrder(root);
+        System.out.println("is Valid BST");
+        System.out.println(obj.isValidBST(root));
     }
 
     int sizeOfTree(Node root) {
@@ -160,6 +162,55 @@ public class SizeSumMaxHeightOfTree {
             System.out.println();
         }
         System.out.println(resultList);
+        List<Integer> lastElemet = resultList.get(resultList.size() - 1);
+
         return resultList;
     }
+
+    boolean isValidBST(Node root) {
+
+        return isValidBST(root, Integer.MIN_VALUE, Integer.MAX_VALUE);
+    }
+
+    boolean isValidBST(Node root, int min, int max) {
+
+        if (root == null) {
+            return false;
+        }
+        System.out.println("data "+root.data+" min "+min+" max"+max);
+        if (root.data <= min || root.data >= max) {
+            System.out.println("true");
+            return true;
+
+        }
+        boolean isLeftValid = isValidBST(root.left, root.data,max );
+        boolean isrightValid = isValidBST(root.right, min, root.data);
+        boolean result = isLeftValid && isrightValid;
+        return result;
+    }
+
+    public boolean isSymmetric(Node root) {
+
+        if (root == null) {
+            return true;
+        }
+        return isSymmetric(root.left, root.right);
+
+    }
+
+    private boolean isSymmetric(Node left, Node right) {
+        if (left == null && right == null) {
+            return true;
+        }
+        if (left != null && right == null) {
+            return false;
+        }
+        if (left == null && right != null) {
+            return false;
+        }
+        int leftData = left.data;
+        int rightData = right.data;
+        return leftData == rightData ? true : false;
+    }
+
 }
