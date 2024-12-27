@@ -7,28 +7,10 @@ public class GoodSubarrays {
 
 
 //        int[] A = {1, 2, 3, 4, 5};
-        int[] A = {13, 16, 16, 15, 9, 16, 2, 7, 6, 17, 3, 9};
-        System.out.println(obj.solve(A, 65));
+        int[] A = {15, 8, 16};
+        System.out.println(obj.solve(A, 242));
     }
 
-/*
-    public int solve2(int[] A, int B) {
-        int count = 0;
-        int n = A.length;
-        for (int i = 0; i < n; i++) {
-            int contribution = (i + 1) * (n - i);
-            int sumOfAr = A[i] * contribution;
-            if (i % 2 == 0 && sumOfAr < B) {
-                count++;
-            } else if (sumOfAr > B) {
-                count++;
-            }
-
-        }
-
-        return count;
-    }
-*/
 
     public int solve(int[] A, int B) {
 
@@ -48,13 +30,14 @@ public class GoodSubarrays {
             for (int j = i; j < n; j++) {
                 if (i == 0) {
                     subArSum = prefixSumAr[j];
-                }
-                else{
+                } else {
                     subArSum = prefixSumAr[j] - prefixSumAr[i - 1];
                 }
-                if (j%2==0&&subArSum < B) {
+                int len = j - i + 1;
+                System.out.println("len {}" + len);
+                if (len % 2 == 0 && subArSum < B) {
                     count++;
-                }else if(j%2!=0&&subArSum>B){
+                } else if (len % 2 != 0 && subArSum > B) {
                     count++;
                 }
             }
