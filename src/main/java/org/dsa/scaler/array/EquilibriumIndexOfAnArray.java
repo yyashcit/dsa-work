@@ -5,16 +5,13 @@ public class EquilibriumIndexOfAnArray {
     public static void main(String[] args) {
         EquilibriumIndexOfAnArray obj = new EquilibriumIndexOfAnArray();
         int[] A = {-7, 1, 5, 2, -4, 3, 0};
-int n=A.length;
-int[] sufAr=new int[A.length];
-sufAr[n-1]=A[n-1];
+        int n = A.length;
+        int[] sufAr = new int[A.length];
+        sufAr[n - 1] = A[n - 1];
 
-for(int i=n-2;i>=0;i++)
-{
-    sufAr[i]=sufAr[i]+A[i-1];
-}
-
-
+        for (int i = n - 2; i >= 0; i++) {
+            sufAr[i] = sufAr[i] + A[i - 1];
+        }
 
 
         System.out.println(obj.solve(A));
