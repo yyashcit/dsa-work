@@ -22,6 +22,8 @@ public class SizeSumMaxHeightOfTree {
         root.left.left = new Node(4);
         root.left.right = new Node(5);
         SizeSumMaxHeightOfTree obj = new SizeSumMaxHeightOfTree();
+        System.out.println("Level Order Traversal");
+        obj.levelOrder(root);
         System.out.println("sizeOfTree " + obj.sizeOfTree(root));
         System.out.println("sumOfTree " + obj.sumOfTree(root));
         System.out.println("maxOfTree " + obj.maxOfTree(root));
@@ -35,8 +37,7 @@ public class SizeSumMaxHeightOfTree {
         System.out.println("PostOrder traversal");
         obj.postOrderTraversal(root);
         System.out.println();
-        System.out.println("Level Order Traversal");
-        obj.levelOrder(root);
+
         System.out.println("is Valid BST");
         System.out.println(obj.isValidBST(root));
     }

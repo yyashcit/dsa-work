@@ -1,20 +1,24 @@
 package org.dsa.linkedList;
 
+import java.util.HashMap;
+
 public class LeetCodeQuestions {
 
     public static void main(String[] args) {
         ListNode head1 = new ListNode(1);
-        head1.next = new ListNode(2);
-        head1.next.next = new ListNode(3);
-        head1.next.next.next = new ListNode(4);
-        head1.next.next.next.next = new ListNode(5);
+        head1.next = new ListNode(1);
+        head1.next.next = new ListNode(2);
+        //head1.next.next.next = new ListNode(4);
+        //head1.next.next.next.next = new ListNode(5);
 
-
+head1=deleteDuplicates(head1);
+        LeetCodeQuestions llObj = new LeetCodeQuestions();
+        llObj.printList(head1);
         ListNode head2 = new ListNode(1);
         head2.next = new ListNode(5);
         head2.next.next = new ListNode(6);
         System.out.println("given LL");
-        LeetCodeQuestions llObj = new LeetCodeQuestions();
+        //LeetCodeQuestions llObj = new LeetCodeQuestions();
         llObj.printList(head1);
         //System.out.println("remove 2nd NodeFromEndOfList");
 
@@ -25,6 +29,28 @@ public class LeetCodeQuestions {
 
     }
 
+    public static  ListNode deleteDuplicates(ListNode A) {
+
+
+        if(A==null){
+            return null;
+        }
+        HashMap<Integer,Boolean> map=new HashMap();
+        ListNode temp=A;
+
+        while(temp!=null){
+
+            int x=temp.val;
+            if(map.containsKey(x)){
+                temp=temp.next.next;
+            }else{
+                map.put(x,true);
+                temp=temp.next;
+            }
+        }
+
+        return temp;
+    }
     void printList(ListNode node) {
         while (node != null) {
             System.out.print(" " + node.val);

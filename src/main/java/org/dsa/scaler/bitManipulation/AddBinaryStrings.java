@@ -6,9 +6,20 @@ public class AddBinaryStrings {
        String A = "1010110111001101101000";
        String B = "1000011011000000111100110";
        AddBinaryStrings obj=new AddBinaryStrings();
-       System.out.println(obj.addBinary(A,B));
-    }
+       //System.out.println(obj.addBinary(A,B));
+obj.printTimer(10);
 
+
+    }
+    void printTimer(int n){
+        if(n==0){
+            System.out.println(0);
+            return;
+        }
+        System.out.println(n);
+        printTimer(n-1);
+
+    }
     public String addBinary(String A, String B) {
 
         //   StringBuffer ansSF=new StringBuffer();
