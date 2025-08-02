@@ -32,7 +32,7 @@ public class BasicOperationOfLL {
          llObj.printList(llObj.deleteFromPosition(head1,  2));
     }
 
-    void printList(ListNode node) {
+    static void printList(ListNode node) {
         while (node != null) {
             System.out.print(" " + node.val);
             node = node.next;
@@ -119,4 +119,10 @@ ListNode deleteFromPosition(ListNode head,int pos)
     curr.next=temp;
     return  head;
 }
+
+    public void printLinkedList(org.scalerAdaptive.linkedList.ListNode updatedHead) {
+    while (updatedHead != null) {
+        System.out.print(updatedHead.val + " ");
+        updatedHead = updatedHead.next;
+    }}
 }

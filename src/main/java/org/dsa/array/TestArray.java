@@ -6,6 +6,10 @@ import java.util.List;
 
 public class TestArray {
     public static void main(String[] args) {
+
+String s="ELECTRONICS_50";//"ELECTRONICS_50"
+        String regex="[A-Za-z0-9_]+";
+        System.out.println(s.matches(regex)); // true
        Integer[] arr= {15, 2 ,45, 12, 7};
         valueEqualToIndex(Arrays.asList(arr));
         }
