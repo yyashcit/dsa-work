@@ -8,47 +8,37 @@ public class MergeOverlappingInterval2 {
     public static void main(String[] args) {
         int[][] intervals = {{1, 3 }, {6 ,9}};
         int[]   newInterval = {2, 5};
-
+List<List<Integer>> result = new ArrayList<>();
         MergeOverlappingInterval2 obj = new MergeOverlappingInterval2();
 
         System.out.println(obj.mergeInterval(intervals, newInterval));
 
     }
 
-   List<List<Integer>> mergeInterval(int[][] intervals, int[] newInterval){
-       List<List<Integer>> ans=new ArrayList<>();
+    public List<List<Integer>> mergeInterval(int[][] intervals, int[] newInterval) {
 
-       int newIntervalS = newInterval[0];
-       int newIntervalE = newInterval[1];
-       for(int i=0;i<intervals.length;i++){
-           int nextStart = intervals[i][0];
-           int nextEnd = intervals[i][1];
+        List<List<Integer>> result = new ArrayList<>();
+        int i = 0;
 
-           if(newIntervalS<= nextEnd && newIntervalE >= nextStart){
-               newIntervalS = Math.min(newIntervalS, nextStart);
-               newIntervalE = Math.max(newIntervalE, nextEnd);
+        // Add all intervals that end before the new interval starts
+        while (i < intervals.length && intervals[i][1] < newInterval[0]) {
+            result.add(List.of(intervals[i][0], intervals[i][1]));
+            i++;
+        }
 
-           }else  if(newIntervalS> nextEnd && newIntervalE >= nextStart){
-               List<Integer> temp=new ArrayList<>();
-               temp.add(nextStart);
-               temp.add(nextEnd);
-               ans.add(temp);
-           }else {
-               List<Integer> temp=new ArrayList<>();
+        // Merge overlapping intervals
+        while (i < intervals.length && intervals[i][0] <= newInterval[1]) {
+            newInterval[0] = Math.min(newInterval[0], intervals[i][0]);
+            newInterval[1] = Math.max(newInterval[1], intervals[i][1]);
+            i++;
+        }
+        result.add(List.of(newInterval[0], newInterval[1]));
 
-               temp.add(nextStart);
-               temp.add(newIntervalE);
-               ans.add(temp);
-               newIntervalS=nextStart;
-               newIntervalE= nextEnd;
+        // Add remaining intervals
+        while (i < intervals.length) {
+            result.add(List.of(intervals[i][0], intervals[i][1]));
+            i++;
+        }
 
-           }
-       }
-       List<Integer> temp=new ArrayList<>();
-       temp.add(newIntervalS);
-       temp.add(newIntervalE);
-       ans.add(temp);
-
-       return ans;
-   }
-}
+        return result;
+    }}
